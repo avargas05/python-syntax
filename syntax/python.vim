@@ -164,6 +164,8 @@ endif
 " Strings
 "
 
+syn match pythonConstant '\<\u\+\(_\u+\)\?\>'
+
 if s:Python2Syntax()
     " Python 2 strings
     syn region pythonString   start=+[bB]\='+ skip=+\\\\\|\\'\|\\$+ excludenl end=+'+ end=+$+ keepend contains=pythonBytesEscape,pythonBytesEscapeError,pythonUniEscape,pythonUniEscapeError,@Spell
@@ -440,6 +442,7 @@ if v:version >= 508 || !exists('did_python_syn_inits')
     HiLink pythonRepeat           Repeat
     HiLink pythonException        Exception
     HiLink pythonOperator         Operator
+    HiLink pythonConstant         Constant
 
     HiLink pythonDecorator        Define
     HiLink pythonDottedName       Function
