@@ -24,9 +24,12 @@ functionname    ()
 test.functionname()
 test.functionname ()
 class Classname
+class classname
 def функция
 функция()
 class Класс
+class класс
+
 
 # Keywords: Python 2
 

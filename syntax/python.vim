@@ -74,7 +74,11 @@ endif
 
 syn keyword pythonStatement     break continue del return pass yield global assert lambda with
 syn keyword pythonStatement     raise nextgroup=pythonExClass skipwhite
-syn keyword pythonStatement     def class nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement     def nextgroup=pythonFunction skipwhite
+if s:Enabled('g:python_highlight_class_names')
+    syn keyword pythonStatement     class nextgroup=pythonClassName skipwhite
+    syn match   pythonClassName    '\%([[:upper:]][^[:cntrl:][:space:][:punct:][:digit:]]\|_\)\%([^[:cntrl:][:punct:][:space:]]\|_\)*' display contained
+endif
 if s:Enabled('g:python_highlight_class_vars')
     syn keyword pythonClassVar    self cls
 endif
@@ -431,6 +435,7 @@ if v:version >= 508 || !exists('did_python_syn_inits')
     HiLink pythonImport           Include
     HiLink pythonFunction         Function
     HiLink pythonFunctionCall     Function
+    HiLink pythonClassName        Structure
     HiLink pythonConditional      Conditional
     HiLink pythonRepeat           Repeat
     HiLink pythonException        Exception
@@ -438,6 +443,7 @@ if v:version >= 508 || !exists('did_python_syn_inits')
 
     HiLink pythonDecorator        Define
     HiLink pythonDottedName       Function
+    HiLink pythonDot              Normal
 
     HiLink pythonComment          Comment
     if !s:Enabled('g:python_highlight_file_headers_as_comments')
