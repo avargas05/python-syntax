@@ -164,7 +164,7 @@ endif
 " Strings
 "
 
-syn match pythonConstant '\<\u\+\(_\u+\)\?\>'
+syn match pythonConstant '\<\u\+\(_\u\+\)\?\>'
 
 if s:Python2Syntax()
     " Python 2 strings
